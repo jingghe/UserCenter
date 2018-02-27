@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load custom_tag %}
+{% block nav %}
+<section class="content-header">
+    <h1>
+        日志中心
+        <small>日志列表</small>
+    </h1>
+</section>
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-hover table-striped  table-bordered table-condensed">
+        <tr>
+            <th>用户</th>
+            <th>时间</th>
+            <th>日志类型</th>
+            <th>日志来源</th>
+            <th>日志详情</th>
+            <th>日志子事件</th>
+        </tr>
+
+            {% for i in page_list %}
+                <tr style="font-size: 13px;">
+                    <td>{{ i.username }}</td>
+                    <td>{{ i.date|date:"Y-m-d H:i:s" }}</td>
+                    <td>{{ i.log_type }}</td>
+                    <td>{{ i.source }}</td>
+                    <td>{{ i.detail }}</td>
+                    <td>{{ i.component|default:"----" }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+{% include "paging/paginator.html" %}
+
+{% endblock %}

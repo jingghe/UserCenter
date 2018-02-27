@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block nav %}
+<section class="content-header">
+    <h1>
+        当前个人账户名称:{{username}}
+        <small></small>
+    </h1>
+</section>
+{% endblock %}
+
+{% block content %}
+    <form class="form-horizontal" role="form" action="/setting/" method="POST" >
+    {% csrf_token %}
+
+        
+        {% for item in form %}
+                <div class="form-group">
+                    <label class="control-label col-md-1">{{item.label}}</label>
+                    <div class="col-md-2">
+                        {{item}}
+                    </div>
+                    <div class="col-md-offset-1 col-md-10">
+                        {{item.errors}}
+                    </div>
+                </div>
+        {% endfor %}
+<div class="form-group">
+            <div class="col-md-offset-1 col-md-10">
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('确认更新吗？')">更 新</button>
+                <!--a class="btn btn-danger btn-sm" href="/accounts/user/resetpwd/ect.id }}" onclick="return confirm('确认重置密码吗？？')">重置密码</a-->
+            </div>
+        </div>
+    </form>
+{% endblock %}
+

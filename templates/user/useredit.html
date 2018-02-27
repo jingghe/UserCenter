@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block nav %}
+<section class="content-header">
+    <h1>
+        用户管理
+        <small>修改用户信息</small>
+    </h1>
+</section>
+{% endblock %}
+
+{% block content %}
+    <form class="form-horizontal" role="form" action={{ postUrl }} method="POST" >
+    {% csrf_token %}
+
+        {% for item in form %}
+            {% if item.name == 'password' %}
+                {{item}}
+            {% else %}
+                <div class="form-group">
+                    <label class="control-label col-md-1">{{item.label}}</label>
+                    <div class="col-md-2">
+                        {{item}}
+                    </div>
+                    <div class="col-md-offset-1 col-md-10">
+                        {{item.errors}}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+<div class="form-group">
+            <div class="col-md-offset-1 col-md-10">
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('确认修改吗？')">更 新</button>
+                <a class="btn btn-danger btn-sm" href="/user/reset/password/{{ object.id }}" onclick="return confirm
+                ('确认重置密码吗？？')">重置密码</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+

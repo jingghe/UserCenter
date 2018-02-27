@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block nav %}
+<section class="content-header">
+    <h1>
+        部门管理
+        <small>修改部门信息</small>
+    </h1>
+</section>
+{% endblock %}
+
+{% block content %}
+    <form class="form-horizontal" role="form" action={{ postUrl }} method="POST" >
+    {% csrf_token %}
+
+        {% for item in form %}
+            {% if item.name == 'password' %}
+                {{item}}
+            {% else %}
+                <div class="form-group">
+                    <label class="control-label col-md-1">{{item.label}}</label>
+                    <div class="col-md-2">
+                        {{item}}
+                    </div>
+                    <div class="col-md-offset-1 col-md-10">
+                        {{item.errors}}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+<div class="form-group">
+            <div class="col-md-offset-1 col-md-10">
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('确认修改吗？')">更 新</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
