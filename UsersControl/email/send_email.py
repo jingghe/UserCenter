@@ -29,8 +29,7 @@ class SendEmail(object):
                 登陆跳板机ip:192.168.7.191  端口:21987
                 <h3><a>初次登陆，请点击</a><a href=http://www.baidu.com><font 
                 color='blue'>%s/Modify/Pass/</font></a><a>修改密码</a></h3>
-                <font color='blue'>Gaea 用户中心账户问题或者需求请联系运维部运维工程师:</font><font color='red'>赵虹 
-                联系邮箱地址:zhaohong@globalegrow.com</font><br /><br />
+                <font color='blue'>Gaea 用户中心账户问题或者需求请联系运维部运维工程师:</font><font color='red'>xx</font><br /><br />
                 <h3><font color='red'>该邮件，请忽回复,谢谢!</font><br /><br /><h3>
         """ % (self.Nickname, self.username, self.Receiver_password,  self.Receiver_user)
 
@@ -42,8 +41,7 @@ class SendEmail(object):
                 <p>密码:<font color='red'>%s</font></p>
                 <h3><a>你可以点击</a><a href=http://www.baidu.com><font 
                 color='blue'>%s/Modify/Pass/</font></a><a>修改密码</a></h3>
-                <font color='blue'>Gaea 用户中心账户问题或者需求请联系运维部运维工程师:</font><font color='red'>赵虹 
-                联系邮箱地址:zhaohong@globalegrow.com</font><br /><br />
+                <font color='blue'>Gaea 用户中心账户问题或者需求请联系运维部运维工程师:</font><font color='red'>xxx</font><br /><br />
                 <h3><font color='red'>该邮件，请忽回复,谢谢!</font><br /><br /><h3>
         """ % (self.Nickname, self.username, self.Receiver_password, self.Receiver_user)
 
